@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="509.0" prefWidth="802.0" spacing="10" style="-fx-background-color: linear-gradient(to bottom, #2C3E50, #3498DB);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Desafio.Pratico.controller.DownloaderScreenController">
+
+     <padding>
+         <Insets bottom="20" left="20" right="20" top="20" />
+     </padding>
+
+     <Label fx:id="tituloMusica" style="-fx-font-size: 24px; -fx-text-fill: white;" text="Título da Música" />
+
+     <HBox alignment="CENTER_LEFT" maxHeight="100.0" prefHeight="35.0" prefWidth="391.0" spacing="400.0">
+      <HBox maxHeight="30.0" prefHeight="0.0" spacing="10.0">
+         <children>
+                <TextField fx:id="idMusica" promptText="Digite o ID da Música">
+               <HBox.margin>
+                  <Insets top="16.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="botaoIniciarPausar1" contentDisplay="TOP" onAction="#adicionarMusica" prefHeight="25.0" prefWidth="80.0" text="Adicionar">
+               <HBox.margin>
+                  <Insets top="16.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Button fx:id="botaoIniciarDownload" alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="26.0" onAction="#iniciarDownload" prefHeight="25.0" prefWidth="120.0" text="▶ Iniciar Download" textAlignment="CENTER">
+         <HBox.margin>
+            <Insets top="15.0" />
+         </HBox.margin>
+      </Button>
+      <VBox.margin>
+         <Insets left="5.0" />
+      </VBox.margin>
+     </HBox>
+   <HBox>
+      <children>
+         <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" maxWidth="499.0" prefHeight="17.0" prefWidth="499.0" text="&lt; Lista Músicas &gt;" textAlignment="CENTER" textFill="WHITE">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <font>
+               <Font name="Lucida Console" size="21.0" />
+            </font>
+         </Label>
+         <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="10.0" layoutY="10.0" maxWidth="499.0" prefHeight="17.0" prefWidth="499.0" text="&lt; Processamento &gt;" textAlignment="CENTER" textFill="WHITE">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <font>
+               <Font name="Lucida Console" size="21.0" />
+            </font>
+         </Label>
+      </children>
+      <VBox.margin>
+         <Insets top="10.0" />
+      </VBox.margin>
+   </HBox>
+   <HBox alignment="CENTER" cache="true" maxHeight="500.0" maxWidth="770.0" prefHeight="285.0" prefWidth="770.0" spacing="20.0" VBox.vgrow="NEVER">
+      <children>
+
+           <TextArea fx:id="displayListaPrompt" editable="false" minHeight="285.0" prefHeight="285.0" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: black; -fx-font-size: 16px; -fx-alignment: center;" />
+         <TextArea fx:id="displayDownloadedPrompt" editable="false" layoutX="10.0" layoutY="10.0" minHeight="285.0" prefHeight="285.0" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: black; -fx-font-size: 16px; -fx-alignment: center;" />
+      </children>
+      <VBox.margin>
+         <Insets bottom="10.0" />
+      </VBox.margin>
+   </HBox>
+
+     <HBox alignment="BOTTOM_LEFT" spacing="10">
+         <Button fx:id="botaoIniciarPausar" onAction="#limparMusicas" text="Limpar Lista" />
+      <VBox.margin>
+         <Insets left="5.0" />
+      </VBox.margin>
+     </HBox>
+ </VBox>

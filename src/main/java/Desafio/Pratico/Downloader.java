@@ -15,7 +15,7 @@ import java.util.List;
 public class Downloader {
     private List<String> url = new ArrayList<>();
 
-    public void baixaMusica(String url) {
+    public void baixaMusica(String url, String pathToDownload) {
         YoutubeDownloader downloader = new YoutubeDownloader();
 
         try {
@@ -30,7 +30,7 @@ public class Downloader {
 
             // Seleciona o melhor formato de áudio disponível
 
-            File outputDir = new File("save-directory"); // Diretório de saída
+            File outputDir = new File(pathToDownload); // Diretório de saída
             RequestVideoFileDownload requestDownload = new RequestVideoFileDownload(audioFormat)
                     .saveTo(outputDir)
                     .renameTo(nomeVideo+".mp3")

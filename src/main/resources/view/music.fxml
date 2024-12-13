@@ -13,7 +13,7 @@
 
      <Label fx:id="tituloMusica" style="-fx-font-size: 24px; -fx-text-fill: white;" text="Título da Música" />
 
-     <HBox alignment="CENTER_LEFT" maxHeight="100.0" prefHeight="35.0" prefWidth="391.0" spacing="400.0">
+     <HBox maxHeight="100.0" prefHeight="35.0" prefWidth="391.0" spacing="118.0">
       <HBox maxHeight="30.0" prefHeight="0.0" spacing="10.0">
          <children>
                 <TextField fx:id="idMusica" promptText="Digite o ID da Música">
@@ -21,18 +21,22 @@
                   <Insets top="16.0" />
                </HBox.margin>
             </TextField>
-            <Button fx:id="botaoIniciarPausar1" contentDisplay="TOP" onAction="#adicionarMusica" prefHeight="25.0" prefWidth="80.0" text="Adicionar">
+            <Button contentDisplay="TOP" onAction="#adicionarMusica" prefHeight="25.0" prefWidth="80.0" text="Adicionar">
                <HBox.margin>
                   <Insets top="16.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <Button fx:id="botaoIniciarDownload" alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="26.0" onAction="#iniciarDownload" prefHeight="25.0" prefWidth="120.0" text="▶ Iniciar Download" textAlignment="CENTER">
+      <HBox spacing="10.0">
+         <children>
+            <TextField fx:id="pathToSaveDownload" prefHeight="25.0" prefWidth="269.0" promptText="Digite o caminho da pasta que quer salvar suas músicas" />
+            <Button fx:id="botaoIniciarDownload" alignment="CENTER" contentDisplay="CENTER" onAction="#iniciarDownload" prefHeight="25.0" prefWidth="120.0" text="▶ Iniciar Download" textAlignment="CENTER" />
+         </children>
          <HBox.margin>
-            <Insets top="15.0" />
+            <Insets top="16.0" />
          </HBox.margin>
-      </Button>
+      </HBox>
       <VBox.margin>
          <Insets left="5.0" />
       </VBox.margin>

@@ -22,6 +22,9 @@ public class DownloaderScreenController {
     private TextField idMusica;
 
     @FXML
+    private TextField pathToSaveDownload;
+
+    @FXML
     private TextArea displayListaPrompt;
 
     @FXML
@@ -45,8 +48,8 @@ public class DownloaderScreenController {
     @FXML
     private void adicionarMusica() throws InterruptedException {
         String musica = idMusica.getText();
-        if(musica.isEmpty()) {
-            this.showAlert("ID inválido/Vazio", "Digite um ID válido");
+        if(musica.isEmpty() || pathToSaveDownload.getText().isEmpty()) {
+            this.showAlert("ID inválido/Vazio ou Caminho para salvar arquivos está vazio.", "Digite um ID ou um Caminho para salvar arquivos válido.");
             Thread.sleep(100);
             displayListaPrompt.clear();
         } else {
@@ -60,11 +63,12 @@ public class DownloaderScreenController {
         try {
             this.validaIniciarDownload();
             if(this.downloader.getUrl().isEmpty()) throw new InterruptedException("Erro durante o Download das Músicas");
+            if(this.pathToSaveDownload.getText().isEmpty()) throw new InterruptedException("Caminho para salvar arquivos inválido.");
 
             ExecutorService executorService = Executors.newSingleThreadExecutor();
             Future<?> future = executorService.submit(() -> {
                 this.downloader.getUrl().forEach(musica -> {
-                    this.downloader.baixaMusica(musica);
+                    this.downloader.baixaMusica(musica, pathToSaveDownload.getText());
                     await(300);
                     String musicaBaixada = "ID Música [%i] = Baixada [✔]".replace("%i", String.valueOf(this.downloader.getUrl().indexOf(musica)));
                     displayDownloadedPrompt.appendText(musicaBaixada+"\n");
